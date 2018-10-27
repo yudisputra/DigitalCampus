@@ -62,16 +62,29 @@
                     </li>
                     <?php
                     if($this->session->userdata('logged_in'))
-                    { ?>
-                        <li>
-                        <a class="page-scroll" href="#">Selamat Datang, <?php echo $username?></a>
+                    { if($username="admin") { ?>
+                         <li>
+                            <a class="page-scroll" href="<?php echo base_url()?>Admin/index">Halaman Admin</a>
                         </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hello , <?php echo $username; ?> <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="<?php echo base_url()?>/Login/logout">Log Out</li>
+                        </ul>
+                    </li>
+
                      <?php } else{ ?>
-                        <li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hello , <?php echo $username; ?> <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="<?php echo base_url()?>/Login/logout">Log Out</li>
+                        </ul>
+                     <?php } } else {?>
+                    
+                     <li>
                         <a class="page-scroll" href="<?php echo base_url()?>/Home/login">Login</a>
                         </li>
-                     <?php } ?>
-                    
+                    <?php } ?>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
