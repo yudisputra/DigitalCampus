@@ -24,11 +24,11 @@
                 <p>Silahkan untuk mahasiswa yang akan meminjam kunci ruangan membuka aplikasi DICAM android dan membuka fitur pinjam.</p>
             </div>
             <div class="col-md-6 portfolio-item">
-                <a href="#">
+                <a href="<?php echo base_url()?>Peminjaman/datatabelpinjam">
                     <img class="img-responsive" src="<?php echo site_url()?>assets/image/kunci2.jpg" alt="">
                 </a>
                 <h3>
-                    <a href="#">Data Peminjaman</a>
+                    <a href="<?php echo base_url()?>Peminjaman/datatabelpinjam">Data Peminjaman</a>
                 </h3>
                 <p>Klik disini untuk melihat Data Ruang dan Mahasiswa yang meminjam.</p>
             </div>
