@@ -58,7 +58,7 @@
                         <a class="page-scroll" href="#services">Pengumuman</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#portfolio">Peminjaman</a>
+                        <a class="page-scroll" href="<?php echo base_url()?>Peminjaman/index">Peminjaman</a>
                     </li>
                     <?php
                     if($this->session->userdata('logged_in'))
