@@ -1,4 +1,4 @@
-<?php $this->load->view('admin/base_admin'); ?>
+<?php $this->load->view('admin/base_admin_datatable'); ?>
 
       <div id="content-wrapper">
         <div class="container-fluid">
