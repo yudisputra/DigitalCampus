@@ -2,6 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Admin extends CI_Controller {
+	var $API ="";
 
 	function __construct()
 	{
@@ -10,9 +11,11 @@ class Admin extends CI_Controller {
 	/* Standard Libraries of codeigniter are required */
 		$this->load->database();
 		$this->load->helper('url');
+		$this->load->library('curl');
 	/* ------------------ */ 
  
 		$this->load->library('grocery_CRUD');
+		$this->API="http://localhost:8012/DigitalCampus/";
 	}
 
 	public function index()
@@ -20,6 +23,7 @@ class Admin extends CI_Controller {
 		$this->load->view("admin/home");		
 	}
 
+	//Tab Mahasiswa
 	 public function do_upload_mhs()
     {
     	$this->load->model('admin_model');
@@ -74,6 +78,7 @@ class Admin extends CI_Controller {
 		$this->output_view($output);                
 	}
 
+	//Tab ruang
 	public function ruang()
 	{
 		$crud = new grocery_CRUD();
@@ -85,7 +90,21 @@ class Admin extends CI_Controller {
 
 		$output = $crud->render();
  	
-		$this->output_view($output);                
+		$this->output_view_ruang($output);                
+	}
+
+	function output_view_ruang($output = null)
+ 
+	{
+		$this->load->view('admin/data_table_ruang.php',$output);    
+	}
+
+	function create(){
+		$data = array(
+			'noruang' => $this->input->post('noruang'),
+			'namaruang' => $this->input->post('namaruang'),
+			'lokasiruang' => $this->input->post('lokasiruang'));
+		$this->curl->simple_post($this->API.'/Ruang', $data, array(CURLOPT_BUFFERSIZE => 10));
 	}
 
 	function output_view($output = null)

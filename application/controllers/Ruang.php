@@ -1,7 +1,7 @@
 <?php
     require APPPATH . '/libraries/REST_Controller.php';
 
-    class Mahasiswa extends REST_Controller{
+    class Ruang extends REST_Controller{
         function __construct($config = 'rest'){
             parent::__construct($config);
         }
@@ -21,12 +21,11 @@
         //insert new data to mahasiswa
         function index_post(){
             $data = array(
-                        'nim'           => $this->post('nim'),
-                        'nama'          => $this->post('nama'),
-                        'tempatlahir'    => $this->post('tempatlahir'),
-                        'alamat'        => $this->post('alamat')
+                        'noruang'            => $this->post('noruang'),
+                        'namaruang'          => $this->post('namaruang'),
+                        'lokasiruang'        => $this->post('lokasiruang')
             );
-            $insert = $this->db->insert('mahasiswa', $data);
+            $insert = $this->db->insert('Ruang', $data);
             if($insert){
                 $this->response($data, 200);
             }else{
